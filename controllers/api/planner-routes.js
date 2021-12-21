@@ -30,5 +30,7 @@ router.get('/', withAuth, (req, res) => {
 
 //get one planner by name
 router.get('/:name', withAuth, (req, res) => {
-    Planner.findOne()
-})
+    Planner.findOne({
+        
+    })
+});
