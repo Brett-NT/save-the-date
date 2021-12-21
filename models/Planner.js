@@ -15,6 +15,10 @@ Planner.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        role: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
