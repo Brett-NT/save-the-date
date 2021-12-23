@@ -22,13 +22,6 @@ Planner.init(
             validate: {
                 isEmail: true
             }
-        },
-        event_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'event',
-                key: 'id'
-            }
         }
     },
     {
