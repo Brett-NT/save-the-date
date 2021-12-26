@@ -5,8 +5,8 @@ const path = require('path'); // Is this from handlbars to allow connection from
 //npm install express-handlebars
 const exphbs = require('express-handlebars');
 // const hbs = exphbs.create({});
-// const helpers = require('./utils/helpers');
-// const hbs = exphbs.create({ helpers });
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
 
 
 //for expression session, and connect-session-sequelize usage
@@ -25,7 +25,7 @@ const sess = {
 };
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 //also for connect session as express session
 app.use(session(sess));
@@ -34,10 +34,10 @@ app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// //more handlebar set up
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
-// // end of handlebars set up
+//more handlebar set up
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+// end of handlebars set up
 
 //allows to path to stylesheets ... expres.static is a middleware built in function that allows you to serve static files (ie public).
 app.use(express.static(path.join(__dirname, 'public')));
