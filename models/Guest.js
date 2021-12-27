@@ -42,3 +42,5 @@ Guest.init(
         modelName: 'guest'
     }
 );
+
+module.exports = Guest;
