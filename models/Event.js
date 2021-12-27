@@ -17,7 +17,8 @@ Event.init(
         },
         date: {
             type: DataTypes.DATE,
-            allowNull: true
+            allowNull: false,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
         planner_id: {
             type: DataTypes.INTEGER,
