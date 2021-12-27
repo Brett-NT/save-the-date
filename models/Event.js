@@ -25,20 +25,6 @@ Event.init(
                 model: 'planner',
                 key: 'id'
             }
-        },
-        guest_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'guest',
-                key: 'id'
-            }
-        },
-        partner_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Partner',
-                key: 'id'
-            }
         }
     },
     {
