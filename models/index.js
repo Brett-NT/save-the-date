@@ -17,15 +17,6 @@ Event.belongsTo(Planner, {
   onDelete: "SET NULL"
 });
 
-Event.hasMany(Partner, {
-    foreignKey: "event_id",
-});
-
-Partner.belongsTo(Event, {
-    foreignKey: "event_id",
-    onDelete: "SET NULL"
-});
-
 Partner.belongsToMany(Event, {
   through: PartnerEvents,
   as: "partner_events",
@@ -40,15 +31,6 @@ Event.belongsToMany(Partner, {
   onDelete: "SET NULL"
 });
 
-Event.hasMany(Guest, {
-    foreignKey: "event_id"
-});
-
-Guest.belongsTo(Event, {
-    foreignKey: "event_id",
-    onDelete: "SET NELL"
-});
-
 Guest.belongsToMany(Event, {
   through: GuestEvents,
   as: "guest_events",
@@ -60,15 +42,6 @@ Event.belongsToMany(Guest, {
   through: GuestEvents,
   as: "guest_events",
   foreignKey: "event_id",
-  onDelete: "SET NULL"
-});
-
-Event.hasMany(Guest, {
-  foreignKey: "guest_id"
-});
-
-Guest.belongsTo(Event, {
-  foreignKey: "guest_id",
   onDelete: "SET NULL"
 });
 

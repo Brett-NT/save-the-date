@@ -15,14 +15,16 @@ const seedAll = async () => {
   await seedPlanner();
   console.log('--------------');
 
+  await seedEvents();
+  console.log('--------------');
+  
   await seedPartners();
   console.log('--------------');
 
   await seedGuests();
   console.log('--------------');
 
-  await seedEvents();
-  console.log('--------------');
+
 
   process.exit(0);
 };
