@@ -4,19 +4,19 @@ const { Event } = require('../models');
 const eventdata = [
   {
     event_name: 'brett',
-    date: new Date()
+    planner_id: 2
   },
   {
     event_name: 'lewis',
-    date: new Date()
+    planner_id: 1
   },
   {
     event_name: 'travis',
-    date: new Date()
+    planner_id: 4
   },
   {
     event_name: 'austin',
-    date: new Date()
+    planner_id: 2
   }
 ];
 

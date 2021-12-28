@@ -3,22 +3,24 @@ const sequelize = require('../../config/connection');
 const { Planner, User, Event, Partner, Guest } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//get all planners for specific event
+//get all guestss for the specific event
 router.get('/', withAuth, (req, res) => {
-    Planner.findAll({
+    Guest.findAll({
+        where: {
+            event_id: req.params.event_id
+        },
         attributes: [
             'id',
             'name',
-            'role',
-            'email'
+            'email',
+            'attending'
         ]
-    })
-    .then(dbPlannerData => {
-        if(!dbPlannerData) {
-            res.status(404).json({ message: 'No event planners were found for this event.' });
+    }).then(dbGuestData => {
+        if (!dbGuestData) {
+            res.status(404).json({ message: 'No guests were found for this event.' });
             return;
         }
-        res.json(dbPlannerData);
+        res.json(dbGuestData);
     })
     .catch(err => {
         console.log(err);
@@ -26,24 +28,26 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-//get one planner by name
-router.get('/:name', withAuth, (req, res) => {
-    Planner.findOne({
+//get one guest by id
+router.get('/:id', withAuth, (req, res) => {
+    Guest.findOne({
         where: {
-            name: req.params.name
+            id: req.params.id
         },
         attributes: [
-            "id",
-            "name",
-            "email"
+            'id',
+            'name',
+            'email',
+            'attending',
+            'event_id'
         ]
     })
-    .then(dbPlannerData => {
-        if (!dbPlannerData) {
-            res.status(404).json({ message: "No planner found with this id." });
+    .then(dbGuestData => {
+        if (!dbGuestData) {
+            res.status(404).json({ message: 'No guest was found with this id.' });
             return;
         }
-        res.json(dbPlannerData);
+        res.json(dbGuestData);
     })
     .catch(err => {
         console.log(err);
@@ -51,25 +55,28 @@ router.get('/:name', withAuth, (req, res) => {
     });
 });
 
-//create new planner
+//create new guest
 router.post('/', withAuth, (req, res) => {
-    Planner.create({
+    Guest.create({
         name: req.body.name,
-        email: req.body.email
+        email: req.body.email,
+        attending: req.body.attending,
+        event_id: req.body.event_id
     })
-    .then(dbPlannerData => res.json(dbPlannerData))
+    .then(dbGuestData => res.json(dbGuestData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
 
-//update planner
+//update guest
 router.put('/:id', withAuth, (req, res) => {
-    Planner.update(
+    Guest.update(
         {
             name: req.body.name,
-            email:req.body.email
+            email: req.body.email,
+            attending: req.body.attending
         },
         {
             where: {
@@ -77,12 +84,12 @@ router.put('/:id', withAuth, (req, res) => {
             }
         }
     )
-    .then(dbPlannerData => {
-        if (!dbPlannerData) {
-            res.status(404).json({ message: 'No planner found with this id.' });
+    .then(dbGuestData => {
+        if (!dbGuestData) {
+            res.status(404).json({ message: 'No guest was found with this id.' });
             return;
         }
-        res.json(dbPlannerData);
+        res.json(dbGuestData);
     })
     .catch(err => {
         console.log(err);
@@ -90,20 +97,19 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-//delete a planner
+//delete a guest
 router.delete('/:id', withAuth, (req, res) => {
     console.log('id', req.params.id);
-    Planner.destroy({
+    Guest.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(dbPlannerData => {
-        if (!dbPlannerData) {
-            res.status(404).json({ message: 'No planner found with this id.' });
+    .then(dbGuestData => {
+        if (!dbGuestData) {
+            res.status(404).json({ message: 'No guest found with this id.' });
             return;
         }
-        res.json(dbPlannerData);
     })
     .catch(err => {
         console.log(err);

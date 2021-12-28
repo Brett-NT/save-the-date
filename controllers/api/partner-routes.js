@@ -3,9 +3,9 @@ const sequelize = require('../../config/connection');
 const { Planner, User, Event, Partner, Guest } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//get all planners for specific event
+//get all Partners for specific event
 router.get('/', withAuth, (req, res) => {
-    Planner.findAll({
+    Partner.findAll({
         attributes: [
             'id',
             'name',
@@ -13,12 +13,12 @@ router.get('/', withAuth, (req, res) => {
             'email'
         ]
     })
-    .then(dbPlannerData => {
-        if(!dbPlannerData) {
-            res.status(404).json({ message: 'No event planners were found for this event.' });
+    .then(dbPartnerData => {
+        if(!dbPartnerData) {
+            res.status(404).json({ message: 'No event Partners were found for this event.' });
             return;
         }
-        res.json(dbPlannerData);
+        res.json(dbPartnerData);
     })
     .catch(err => {
         console.log(err);
@@ -26,9 +26,9 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-//get one planner by name
+//get one Partner by name
 router.get('/:name', withAuth, (req, res) => {
-    Planner.findOne({
+    Partner.findOne({
         where: {
             name: req.params.name
         },
@@ -38,12 +38,12 @@ router.get('/:name', withAuth, (req, res) => {
             "email"
         ]
     })
-    .then(dbPlannerData => {
-        if (!dbPlannerData) {
-            res.status(404).json({ message: "No planner found with this id." });
+    .then(dbPartnerData => {
+        if (!dbPartnerData) {
+            res.status(404).json({ message: "No Partner found with this id." });
             return;
         }
-        res.json(dbPlannerData);
+        res.json(dbPartnerData);
     })
     .catch(err => {
         console.log(err);
@@ -51,22 +51,22 @@ router.get('/:name', withAuth, (req, res) => {
     });
 });
 
-//create new planner
+//create new Partner
 router.post('/', withAuth, (req, res) => {
-    Planner.create({
+    Partner.create({
         name: req.body.name,
         email: req.body.email
     })
-    .then(dbPlannerData => res.json(dbPlannerData))
+    .then(dbPartnerData => res.json(dbPartnerData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
 
-//update planner
+//update Partner
 router.put('/:id', withAuth, (req, res) => {
-    Planner.update(
+    Partner.update(
         {
             name: req.body.name,
             email:req.body.email
@@ -77,12 +77,12 @@ router.put('/:id', withAuth, (req, res) => {
             }
         }
     )
-    .then(dbPlannerData => {
-        if (!dbPlannerData) {
-            res.status(404).json({ message: 'No planner found with this id.' });
+    .then(dbPartnerData => {
+        if (!dbPartnerData) {
+            res.status(404).json({ message: 'No Partner found with this id.' });
             return;
         }
-        res.json(dbPlannerData);
+        res.json(dbPartnerData);
     })
     .catch(err => {
         console.log(err);
@@ -90,20 +90,20 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-//delete a planner
+//delete a Partner
 router.delete('/:id', withAuth, (req, res) => {
     console.log('id', req.params.id);
-    Planner.destroy({
+    Partner.destroy({
         where: {
             id: req.params.id
         }
     })
-    .then(dbPlannerData => {
-        if (!dbPlannerData) {
-            res.status(404).json({ message: 'No planner found with this id.' });
+    .then(dbPartnerData => {
+        if (!dbPartnerData) {
+            res.status(404).json({ message: 'No Partner found with this id.' });
             return;
         }
-        res.json(dbPlannerData);
+        res.json(dbPartnerData);
     })
     .catch(err => {
         console.log(err);
