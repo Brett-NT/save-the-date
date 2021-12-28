@@ -1,5 +1,5 @@
 const express = require('express');
-const routes = require('./controllers');
+const routes = require('./controllers/');
 const sequelize = require('./config/connection');
 const path = require('path'); // Is this from handlbars to allow connection from front to back-end
 //npm install express-handlebars
@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars');
 // const hbs = exphbs.create({});
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
+
 
 
 //for expression session, and connect-session-sequelize usage
@@ -24,8 +25,9 @@ const sess = {
   })
 };
 
+
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 //also for connect session as express session
 app.use(session(sess));
@@ -43,9 +45,11 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // turn on routes
-app.use(routes);
+app.use(require('./controllers/'));
+
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening on port:' + PORT));
 });
+
