@@ -57,7 +57,7 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
-//update event_name
+//update event
 router.put('/:id', withAuth, (req, res) => {
     Event.update(
         {
