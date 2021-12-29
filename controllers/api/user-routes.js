@@ -51,14 +51,14 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
     User.findOne({
       where: {
-        email: req.body.email
-      }
+        username: req.body.username,
+        // password: req.body.password
+    }
     }).then(dbUserData => {
       if (!dbUserData) {
-        res.status(400).json({ message: 'No user with that email address!' });
+        res.status(400).json({ message: 'Invalid Username. Please try again.' });
         return;
       }
   
@@ -79,11 +79,22 @@ router.post('/login', (req, res) => {
     });
   });
 
+  router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    }
+    else {
+      res.status(404).end();
+    }
+  });
+
 //update User
 router.put('/:id', withAuth, (req, res) => {
     User.update(
         {
-            name: req.body.name,
+            username: req.body.username,
             email:req.body.email
         },
         {
