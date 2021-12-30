@@ -1,0 +1,20 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Event
+  </h2>
+  <form class="edit-event-form">
+    <div>
+      <input name="event-title" type="text" value="{{event.title}}" />
+      <span>({{event.date}})</span>
+      <span>({{event.description}})</span>
+    </div>
+    <div>
+      {{!-- {{post.vote_count}} {{format_plural "point" eve.vote_count}} by you on {{format_date post.created_at}}
+      |
+      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a> --}}
+    </div>
+    <button type="submit">Save post</button>
+    <button type="button" class="delete-event-btn">Delete Event</button>
+  </form>
+</article>
