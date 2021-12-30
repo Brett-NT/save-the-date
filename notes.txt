@@ -1,0 +1,106 @@
+
+Tables -
+
+Resource
+-First Name
+-Last Name
+
+Coordinator
+-Resource ID
+-Name
+-Username
+-password
+
+Event 
+-Description
+-Date
+-Venue
+
+Invitee 
+-Resource ID
+-Name
+-notification type
+-notification sent
+-Confirmed
+-Response
+-Notes
+
+Caterer
+-Resource ID
+-Name
+
+Helpers
+-Resource ID
+-Name
+-Role
+
+Food List
+-Type
+-Name
+-Description
+
+Venue
+-Resource ID
+-Name
+
+Contact Info 
+-Type
+-Phone
+-Address
+-Email
+
+
+Client ID -
+407328207900-m7c4igq36h67qql6r6c4m3pots5g1i5q.apps.googleusercontent.com
+
+Client Secret -
+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
+
+
+POST /token HTTP/1.1
+Host: oauth2.googleapis.com
+Content-length: 317
+content-type: application/x-www-form-urlencoded
+user-agent: google-oauth-playground
+code=4%2F0AX4XfWiiNfQMSs-21uRO7b7RTd0oAOSr125LPQnajQ-yd4yQn44RrgD6DMc05h2vGii4eQ&redirect_uri=https%3A%2F%2Fdevelopers.google.com%2Foauthplayground&client_id=407328207900-m7c4igq36h67qql6r6c4m3pots5g1i5q.apps.googleusercontent.com&client_secret=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&scope=&grant_type=authorization_code
+HTTP/1.1 200 OK
+Content-length: 400
+X-xss-protection: 0
+X-content-type-options: nosniff
+Transfer-encoding: chunked
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Vary: Origin, X-Origin, Referer
+Server: scaffolding on HTTPServer2
+-content-encoding: gzip
+Pragma: no-cache
+Cache-control: no-cache, no-store, max-age=0, must-revalidate
+Date: Tue, 28 Dec 2021 01:11:18 GMT
+X-frame-options: SAMEORIGIN
+Alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+Content-type: application/json; charset=utf-8
+{
+  "access_token": "ya29.a0ARrdaM8tys3E0Qx6arzXdMDZi9tuaNo_o1hrBPj63-DRz_QfLo3XlXg1p0nbzctVyV9d3No4PB66Me0LKO8wrPMB3SryAP1o9_rFP7WfDx_PscASc9ag_k7QzLvyWT50rbiiMYNtUzSSVe-WJE8wfxSrcSAA", 
+  "scope": "https://mail.google.com/", 
+  "token_type": "Bearer", 
+  "expires_in": 3599, 
+  "refresh_token": "1//04A4joyW6WjvYCgYIARAAGAQSNwF-L9Ir-LXSnTqCar1aE0dbByCMGt2s4DNbSPd-vw4u_ypaHcST1ZVLN083DPW0WVrhKaAzC7A"
+}
+Wrap Lines
+
+Refresh Token
+1//04A4joyW6WjvYCgYIARAAGAQSNwF-L9Ir-LXSnTqCar1aE0dbByCMGt2s4DNbSPd-vw4u_ypaHcST1ZVLN083DPW0WVrhKaAzC7A
+
+access Token
+ya29.a0ARrdaM8tys3E0Qx6arzXdMDZi9tuaNo_o1hrBPj63-DRz_QfLo3XlXg1p0nbzctVyV9d3No4PB66Me0LKO8wrPMB3SryAP1o9_rFP7WfDx_PscASc9ag_k7QzLvyWT50rbiiMYNtUzSSVe-WJE8wfxSrcSAA
+
+
+
+c-ID
+247115018248-mktmnca987mj8064m5m90j006rpvjhh6.apps.googleusercontent.com
+
+c-Secret
+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
+
+
+r-token
+1//04yHLKeQ21Al1CgYIARAAGAQSNwF-L9IrgIrZfR8I6VBdD58PqeRwp-3vjLOn3fVBppkQwwcEPPLO5N4XE_pYkZhe0bxSfsQbFHA
