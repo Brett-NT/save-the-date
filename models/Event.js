@@ -20,11 +20,18 @@ Event.init(
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
-        planner_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'planner',
-                key: 'id'
+        description: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        planner_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        planner_contact: {
+            type: DataTypes.STRING,
+            validate: {
+                isEmail: true
             }
         }
     },

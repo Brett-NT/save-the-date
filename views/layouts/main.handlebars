@@ -5,29 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Save The Date</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="../../public/stylesheets/styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/">Save The Date</a>
-            </h1>
-            <nav>
-                {{#if loggedIn}}
-                <a href="/dashboard">dashboard</a>
-                <button id="logout" class="btn-no-style">logout</button>
-                {{else}}
-                <a href="/login">login</a>
-                {{/if}}
-            </nav>
-        </header>
+        <div class="navbar is-info level">
+                <div class="navbar-brand navbar-item p-5">
+                    <h1>
+                        <a class="title is-1 has-text-centered has-text-white" href="/">Save The Date</a>
+                    </h1>
+                </div> 
+                <div class="navbar-brand navbar-item"> 
+                    <nav class="title is-4 p-3">
+                        {{#if loggedIn}}
+                        <a href="/dashboard">dashboard</a>
+                        <button id="logout" class="btn-no-style has-text-white">logout</button>
+                        {{else}}
+                        <a class="has-text-white" href="/login">Login</a>
+                        {{/if}}
+                    </nav>
+                </div> 
+        </div>
         <main>
             {{{ body }}}
         </main>
-        <footer>
-            Get To Planning!
+        <footer class="">
+            <div class="content has-text-centered title-4">
+            <p class="has-background-info has-text-white">My Events!</p> 
+            </div>
         </footer>
     </div>
     {{#if loggedIn}}

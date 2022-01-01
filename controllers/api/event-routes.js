@@ -28,7 +28,9 @@ router.get('/:id', withAuth, (req, res) => {
         attributes: [
             'id',
             'event_name',
-            'date'
+            'date',
+            'planner_name',
+            'planner_contact'
         ]
     })
         .then(dbEventData => {
@@ -61,7 +63,11 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     Event.update(
         {
-            event_name: req.body.event_name
+            event_name: req.body.event_name,
+            date: req.body.date,
+            description: req.body.description,
+            planner_name: req.body.planner_name,
+            planner_contact: req.body.planner_contact
         },
         {
             where: {
