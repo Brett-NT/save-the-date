@@ -9,7 +9,10 @@ router.get('/', withAuth, (req, res) => {
         attributes: [
             'id',
             'event_name',
-            'date'
+            'date',
+            'description',
+            'planner_name',
+            'planner_contact'
         ]
     })
         .then(dbEventData => res.json(dbEventData))
