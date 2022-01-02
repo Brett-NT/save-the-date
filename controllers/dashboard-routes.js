@@ -24,7 +24,7 @@ router.get('/', withAuth, (req, res) => {
     ]
   })
     .then(dbEventData => {
-      const Events = dbEventData.map(Event => Event.get({ plain: true }));
+      const Events = dbEventData.map(Events => Event.get({ plain: true }));
       res.render('dashboard', { Events, loggedIn: true });
     })
     .catch(err => {
@@ -38,21 +38,18 @@ router.get('/edit/:id', withAuth, (req, res) => {
     attributes: [
       'id',
       'event_name',
-      'date'
-    ],
-    include: [
-      {
-        model: Planner,
-        attributes: ['id', 'event_name', 'date', 'planner_id'],
-      }
+      'date',
+      'description',
+      'planner_name',
+      'planner_contact'
     ]
   })
     .then(dbEventData => {
       if (dbEventData) {
-        const Event = dbEventData.get({ plain: true });
+        const Events = dbEventData.get({ plain: true });
         
         res.render('edit-Event', {
-          Event,
+          Events,
           loggedIn: true
         });
       } else {

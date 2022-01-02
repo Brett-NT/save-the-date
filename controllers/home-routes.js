@@ -5,13 +5,13 @@ const { Planner, User, Partner, Event, Guest } = require('../models');
 
 router.get('/', (req, res) => {
   console.log('======================');
-  User.findAll({
+  Event.findAll({
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+    .then(dbEventData => {
+      const Events = dbEventData.map(Events => Events.get({ plain: true }));
 
-      res.render('homepage', {
-        posts,
+      res.render('login', {
+        Events,
         loggedIn: req.session.loggedIn
       });
     })
