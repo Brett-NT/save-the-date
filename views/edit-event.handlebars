@@ -5,30 +5,38 @@
   </h2>
   <form class="edit-event-form">
     <div>
-      <input name="event-title" type="text" value="{{event.title}}" />
-      <span>({{event.date}})</span>
-      <span>({{event.description}})</span>
+      <input name="event-title" type="text" value="{{event.event_name}}" />
+      <input name="event-date" type="text" value="{{event.date}}" />
+      <input name="event-description" type="text" value="{{event.description}}" />
+      <input name="planner-name" type="text" value="{{event.planner_name}}" />
+      <input name="planner-contact" type="text" value="{{event.planner_contact}}" />
     </div>
     {{!-- adding a guest --}}
-    <form class = "edit-guests-form">
+    <form class="event-guest-form">
 
-     <div>
-      <label "guest-name">Add your Guest's Name!</label>
-      <input id="guest-name" name="guest-name"/>
-    </div>
-    <div>
-      <label "guest-email">Add a Contact Email</label>
-      <input id="guest-email" name="guest-email"/>
-    </div>
-    <div>
-      <label "guest-attending">Is this Guest Attending?</label>
-      <input id="guest-attending" name="guest-attending" type="radio"/>
-    </div>
-    <button type="submit" class="add-guest-btn">Add Guest</button>
+      <div>
+        <label "guest-name">Add your Guest's Name!</label>
+        <input id="guest-name" name="guest-name" />
+      </div>
+      <div>
+        <label "guest-email">Add a Contact Email</label>
+        <input id="guest-email" name="guest-email" />
+      </div>
+      <div>
+        <input type="radio" id="attending-Choice1" name="attending" value="yes">
+        <label for="attending-Choice1">Yes</label>
+
+        <input type="radio" id="attending-Choice2" name="attending" value="no">
+        <label for="attending-Choice2">No</label>
+      </div>
+      <button type="submit" class="add-guest-btn">Add Guest</button>
 
     </form>
     {{!-- end of adding guest --}}
-    <button type="submit">Save Event</button>
+    <button class="save-event-button" type="submit">Save Event</button>
     <button type="button" class="delete-event-btn">Delete Event</button>
   </form>
 </article>
+
+<script src="/javascript/edit-event.js"></script>
+<script src="/javascript/add-guest.js"></script>
