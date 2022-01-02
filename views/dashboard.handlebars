@@ -26,11 +26,11 @@
 </section>
 
 {{!-- Posts all the events by the user --}}
-{{#if events.length}}
+{{#if event.length}}
 <section>
   <h2>Your Events</h2>
   <ol>
-    {{#each events as |event|}}
+    {{#each event as |event|}}
     <li>
       {{> event-info event}}
       <a href="/dashboard/edit/{{event.id}}" class="edit-link">Edit event</a>

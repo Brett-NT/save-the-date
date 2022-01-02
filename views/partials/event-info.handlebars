@@ -1,0 +1,12 @@
+<div class="events">
+  {{#each this}}
+  <section class="event">
+    <div class="meta">
+      {{event.planner_name}} on {{format_date created_at}}
+    </div>
+    <div class="description">
+      {{event.description}}
+    </div>
+  </section>
+  {{/each}}
+</div>
