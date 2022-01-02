@@ -34,17 +34,46 @@
 {{!-- Posts all the events by the user --}}
 <h2>Your Events!</h2>
 <section>
-  <ol>
-    {{#each Events as |event|}}
+
+
+{{!-- 
+  <div id="div">
+
+  </div> --}}
+
+
+  <ul>
+   {{#each Events}}
     <li>
-      {{> event-info event}}
-      <a href="/dashboard/edit/{{event.id}}" class="edit-link">Edit event</a>
+      <section class="event">
+
+        <div class="partial-event-name">
+          {{Events.event_name}}
+        </div>
+
+        <div class="partial-date">
+          {{Events.date}}
+        </div>
+
+        <div class="partial-description">
+          {{Events.description}}
+        </div>
+
+        <div class="partial-planner-name">
+          {{Events.planner_name}}
+          {{!-- on {{format_date created_at}} --}}
+        </div>
+
+        <div class="partial-planner-contact">
+          {{Events.planner_contact}}
+        </div>
+
+        <a href="/dashboard/edit/{{Events.id}}" class="edit-link">Edit event</a>
+      </section>
     </li>
     {{/each}}
-  </ol>
+  </ul>
 </section>
 
-
-
-
 <script src="/javascript/add-event.js"></script>
+{{!-- <script src="/javascript/view-events.js"></script> --}}

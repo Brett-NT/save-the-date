@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
   console.log('======================');
   Event.findAll({
   })
-    .then(dbEventData => {
-      const Events = dbEventData.map(Events => Events.get({ plain: true }));
+    .then(dbPostData => {
+      const Events = dbPostData.map(post => post.get({ plain: true }));
 
-      res.render('login', {
+      res.render('homepage', {
         Events,
         loggedIn: req.session.loggedIn
       });
