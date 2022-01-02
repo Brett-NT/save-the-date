@@ -49,10 +49,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
   })
     .then(dbEventData => {
       if (dbEventData) {
-        const Event = dbEventData.get({ plain: true });
+        const Events = dbEventData.get({ plain: true });
         
         res.render('edit-Event', {
-          Event,
+          Events,
           loggedIn: true
         });
       } else {

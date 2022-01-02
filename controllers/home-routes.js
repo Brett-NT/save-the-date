@@ -8,10 +8,10 @@ router.get('/', (req, res) => {
   User.findAll({
   })
     .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+      const Events = dbPostData.map(post => post.get({ plain: true }));
 
       res.render('homepage', {
-        posts,
+        Events,
         loggedIn: req.session.loggedIn
       });
     })
