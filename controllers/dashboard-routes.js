@@ -8,19 +8,16 @@ router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
   Event.findAll({
-    where: {
-      user_id: req.session.user_id
-    },
+    // where: {
+    //   user_id: req.session.user_id
+    // },
     attributes: [
       'id',
-      'Event_name',
-      'date'
-    ],
-    include: [
-      {
-        model: Planner,
-        attributes: ['id', 'name', 'email'],
-      }
+      'event_name',
+      'date',
+      'description',
+      'planner_name',
+      'planner_contact'
     ]
   })
     .then(dbEventData => {
