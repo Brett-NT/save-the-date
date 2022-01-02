@@ -1,28 +1,27 @@
-<div class="events">
-  {{#each this}}
+
+  {{!-- {{#each this}} --}}
   <section class="event">
     
     <div class="partial-event-name">
-      {{event.event_name}}
+      {{Events.event_name}}
     </div>
 
      <div class="partial-date">
-      {{event.date}}
+      {{Events.date}}
     </div>
 
     <div class="partial-description">
-      {{event.description}}
+      {{Events.description}}
     </div>
 
     <div class="partial-planner-name">
-      {{event.planner_name}}
+      {{Events.planner_name}}
        {{!-- on {{format_date created_at}} --}}
     </div>
 
     <div class="partial-planner-contact">
-      {{event.planner_contact}}
+      {{Events.planner_contact}}
     </div>
     
   </section>
-  {{/each}}
-</div>
+  {{!-- {{/each}} --}}

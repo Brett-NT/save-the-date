@@ -20,9 +20,10 @@ async function newFormHandler(event) {
         'Content-Type': 'application/json'
       }
     });
-  
+    // console.log("response from post req", response)
     if (response.ok) {
-      document.location.replace('/dashboard');
+    // console.log("great!")
+      // document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
