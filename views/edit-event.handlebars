@@ -5,9 +5,11 @@
   </h2>
   <form class="edit-event-form">
     <div>
-      <input name="event-title" type="text" value="{{event.title}}" />
-      <span>({{event.date}})</span>
-      <span>({{event.description}})</span>
+      <input name="event-title" type="text" value="{{event.event_name}}" />
+      <input name="event-date" type="text" value="{{event.date}}" />
+      <input name="event-description" type="text" value="{{event.description}}" />
+      <input name="planner-name" type="text" value="{{event.planner_name}}" />
+      <input name="planner-contact" type="text" value="{{event.planner_contact}}" />
     </div>
     {{!-- adding a guest --}}
     <form class="event-guest-form">

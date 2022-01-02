@@ -4,8 +4,8 @@ async function editFormHandler(event) {
     const event_name = document.querySelector('input[name="event-title"]').value.trim();
     const date = document.querySelector('input[name="event-date"]').value;
     const description = document.querySelector('input[name="event-description"]').value;
-    const planner_name=;
-    const planner_contact=;
+    const planner_name = document.querySelector('input[name="planner-name"]').value;
+    const planner_contact = document.querySelector('input[name="planner-contact"]').value;
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
@@ -14,7 +14,9 @@ async function editFormHandler(event) {
       body: JSON.stringify({
         event_name,
         date,
-        description
+        description,
+        planner_name,
+        planner_contact
       }),
       headers: {
         'Content-Type': 'application/json'

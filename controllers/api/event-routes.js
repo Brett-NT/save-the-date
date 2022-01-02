@@ -53,7 +53,11 @@ router.get('/:id', withAuth, (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Event.create({
         event_name: req.body.event_name,
-        date: req.body.date
+        date: req.body.date,
+        description: req.body.description,
+        planner_name: req.body.planner_name,
+        planner_contact: req.body.planner_contact
+
     })
         .then(dbEventData => res.json(dbEventData))
         .catch(err => {
