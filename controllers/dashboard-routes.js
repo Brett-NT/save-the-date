@@ -24,7 +24,7 @@ router.get('/', withAuth, (req, res) => {
     ]
   })
     .then(dbEventData => {
-      const Events = dbEventData.map(Events => Event.get({ plain: true }));
+      const Events = dbEventData.map(Event => Event.get({ plain: true }));
       res.render('dashboard', { Events, loggedIn: true });
     })
     .catch(err => {

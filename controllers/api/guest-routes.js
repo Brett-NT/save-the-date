@@ -6,9 +6,9 @@ const withAuth = require('../../utils/auth');
 //get all guestss for the specific event
 router.get('/', withAuth, (req, res) => {
     Guest.findAll({
-        where: {
-            event_id: req.params.event_id
-        },
+        // where: {
+        //     event_id: req.params.event_id
+        // },
         attributes: [
             'id',
             'name',
