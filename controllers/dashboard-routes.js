@@ -38,13 +38,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
     attributes: [
       'id',
       'event_name',
-      'date'
-    ],
-    include: [
-      {
-        model: Planner,
-        attributes: ['id', 'event_name', 'date', 'planner_id'],
-      }
+      'date',
+      'description',
+      'planner_name',
+      'planner_contact'
     ]
   })
     .then(dbEventData => {
