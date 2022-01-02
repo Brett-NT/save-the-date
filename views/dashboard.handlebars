@@ -1,39 +1,41 @@
 <section class="section">
   <div class="title is-2">
-  <h2>Create New Event</h2>
+    <h2>Create New Event</h2>
   </div>
   <form class="event-post-form">
     <div>
       <label class="label is-size-5" for="event-title">Title</label>
-      <input class="input text is-normal is-info" type="text" required id="event-title" placeholder="Please enter the event title" name="event-title" />
+      <input class="input text is-normal is-info" type="text" required id="event-title"
+        placeholder="Please enter the event title" name="event-title" />
     </div>
     <div>
       <label class="label is-size-5" for="event-date">Date</label>
       <input class="input text is-normal is-info" type="date" required id="event-date" name="event-date" />
     </div>
-     <div>
+    <div>
       <label class="label is-size-5" for="event-description">Description</label>
-      <input class="input text is-normal is-info" id="event-description" placeholder="Please enter the description" name="event-description"/>
-    </div>
-    <div class="pt-2">
-      <button class="button is-info has-text-white" type="submit">Create</button>
+      <input class="input text is-normal is-info" id="event-description" placeholder="Please enter the description"
+        name="event-description" />
     </div>
     <div>
       <label class="label is-size-5" for="planner-name">Name of This Event's Planner</label>
-      <input class="input text is-normal is-info" id="planner-name" name="planner-name"/>
+      <input class="input text is-normal is-info" id="planner-name" name="planner-name" />
+    </div>
+    <div>
+      <label class="label is-size-5" for="planner-contact">Planner's email</label>
+      <input class="input text is-normal is-info" id="planner-contact" name="planner-contact" />
     </div>
     <div class="pt-2">
-    <button class="button is-info has-text-white" type="submit">Create</button>
+      <button class="button is-info has-text-white" type="submit">Create</button>
     </div>
   </form>
 </section>
 
 {{!-- Posts all the events by the user --}}
-{{#if events.length}}
+<h2>Your Events!</h2>
 <section>
-  <h2>Your Events</h2>
   <ol>
-    {{#each events as |event|}}
+    {{#each event as |event|}}
     <li>
       {{> event-info event}}
       <a href="/dashboard/edit/{{event.id}}" class="edit-link">Edit event</a>
@@ -41,7 +43,7 @@
     {{/each}}
   </ol>
 </section>
-{{/if}}
+
 
 
 

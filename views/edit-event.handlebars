@@ -5,16 +5,38 @@
   </h2>
   <form class="edit-event-form">
     <div>
-      <input name="event-title" type="text" value="{{event.title}}" />
-      <span>({{event.date}})</span>
-      <span>({{event.description}})</span>
+      <input name="event-title" type="text" value="{{event.event_name}}" />
+      <input name="event-date" type="text" value="{{event.date}}" />
+      <input name="event-description" type="text" value="{{event.description}}" />
+      <input name="planner-name" type="text" value="{{event.planner_name}}" />
+      <input name="planner-contact" type="text" value="{{event.planner_contact}}" />
     </div>
-    <div>
-      {{!-- {{post.vote_count}} {{format_plural "point" eve.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a> --}}
-    </div>
-    <button class="button is-info has-text-white" type="submit">Save post</button>
-    <button class="button is-info has-text-white" type="button" class="delete-event-btn">Delete Event</button>
+    {{!-- adding a guest --}}
+    <form class="event-guest-form">
+
+      <div>
+        <label "guest-name">Add your Guest's Name!</label>
+        <input id="guest-name" name="guest-name" />
+      </div>
+      <div>
+        <label "guest-email">Add a Contact Email</label>
+        <input id="guest-email" name="guest-email" />
+      </div>
+      <div>
+        <input type="radio" id="attending-Choice1" name="attending" value="yes">
+        <label for="attending-Choice1">Yes</label>
+
+        <input type="radio" id="attending-Choice2" name="attending" value="no">
+        <label for="attending-Choice2">No</label>
+      </div>
+      <button type="submit" class="add-guest-btn">Add Guest</button>
+
+    </form>
+    {{!-- end of adding guest --}}
+    <button class="save-event-button" type="submit">Save Event</button>
+    <button type="button" class="delete-event-btn">Delete Event</button>
   </form>
 </article>
+
+<script src="/javascript/edit-event.js"></script>
+<script src="/javascript/add-guest.js"></script>

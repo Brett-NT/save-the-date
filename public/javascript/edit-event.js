@@ -1,14 +1,16 @@
-async function newFormHandler(event) {
+async function editFormHandler(event) {
     event.preventDefault();
   
-    const event_name = document.querySelector('input[name="event-title"]').value;
+    const event_name = document.querySelector('input[name="event-title"]').value.trim();
     const date = document.querySelector('input[name="event-date"]').value;
     const description = document.querySelector('input[name="event-description"]').value;
     const planner_name = document.querySelector('input[name="planner-name"]').value;
     const planner_contact = document.querySelector('input[name="planner-contact"]').value;
-  
-    const response = await fetch(`/api/events`, {
-      method: 'POST',
+    const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
+    const response = await fetch(`/api/events/${id}`, {
+      method: 'PUT',
       body: JSON.stringify({
         event_name,
         date,
@@ -22,10 +24,10 @@ async function newFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/dashboard/');
     } else {
       alert(response.statusText);
     }
   }
   
-  document.querySelector('.event-post-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.save-event-button').addEventListener('submit', editFormHandler);
