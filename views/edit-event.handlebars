@@ -9,9 +9,26 @@
       <span>({{event.date}})</span>
       <span>({{event.description}})</span>
     </div>
-    <div>
+    {{!-- adding a guest --}}
+    <form class = "edit-guests-form">
+
+     <div>
+      <label "guest-name">Add your Guest's Name!</label>
+      <input id="guest-name" name="guest-name"/>
     </div>
-    <button type="submit">Save post</button>
+    <div>
+      <label "guest-email">Add a Contact Email</label>
+      <input id="guest-email" name="guest-email"/>
+    </div>
+    <div>
+      <label "guest-attending">Is this Guest Attending?</label>
+      <input id="guest-attending" name="guest-attending" type="radio"/>
+    </div>
+    <button type="submit" class="add-guest-btn">Add Guest</button>
+
+    </form>
+    {{!-- end of adding guest --}}
+    <button type="submit">Save Event</button>
     <button type="button" class="delete-event-btn">Delete Event</button>
   </form>
 </article>
