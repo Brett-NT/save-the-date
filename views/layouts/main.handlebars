@@ -14,16 +14,19 @@
         <div class="navbar is-info level">
                 <div class="navbar-brand navbar-item p-5">
                     <h1>
-                        <a class="title is-1 has-text-centered has-text-white" href="/">Save The Date</a>
+                        <a class="title is-1 has-text-centered has-text-white" href="/">Save The Date</a>            
                     </h1>
+                    <div class="p-3">
+                    <img  src="https://www.clipartmax.com/png/full/31-316035_calendar-icon-calendar-icon.png" alt="alternatetext">
+                    </div>
                 </div> 
                 <div class="navbar-brand navbar-item"> 
-                    <nav class="title is-4 p-3">
+                    <nav class="pr-5">
                         {{#if loggedIn}}
-                        <a href="/dashboard">dashboard</a>
-                        <button id="logout" class="btn-no-style has-text-white">logout</button>
+                        <a class="title is-4 p-4 has-text-white" href="/dashboard">Dashboard</a>
+                        <button id="logout" class="btn-no-style has-text-black">Logout</button>
                         {{else}}
-                        <a class="has-text-white" href="/login">Login</a>
+                        <a class="has-text-white title is-4" href="/login">Login</a>
                         {{/if}}
                     </nav>
                 </div> 
@@ -33,7 +36,7 @@
         </main>
         <footer class="">
             <div class="content has-text-centered title-4">
-            <p class="has-background-info has-text-white">My Events!</p> 
+            <p class="has-background-info has-text-white">Let's Get To Planning!</p> 
             </div>
         </footer>
     </div>

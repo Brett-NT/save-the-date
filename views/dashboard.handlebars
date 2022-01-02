@@ -1,24 +1,30 @@
-<section>
+<section class="section">
+  <div class="title is-2">
   <h2>Create New Event</h2>
-
+  </div>
   <form class="event-post-form">
     <div>
-      <label for="event-title">Title</label>
-      <input type="text" id="event-title" name="event-title" />
+      <label class="label is-size-5" for="event-title">Title</label>
+      <input class="input text is-normal is-info" type="text" required id="event-title" placeholder="Please enter the event title" name="event-title" />
     </div>
     <div>
-      <label for="event-date">Date</label>
-      <input id="event-date" name="event-date" />
+      <label class="label is-size-5" for="event-date">Date</label>
+      <input class="input text is-normal is-info" type="date" required id="event-date" name="event-date" />
     </div>
      <div>
-      <label for="event-description">Description</label>
-      <input id="event-description" name="event-description"/>
+      <label class="label is-size-5" for="event-description">Description</label>
+      <input class="input text is-normal is-info" id="event-description" placeholder="Please enter the description" name="event-description"/>
+    </div>
+    <div class="pt-2">
+      <button class="button is-info has-text-white" type="submit">Create</button>
     </div>
     <div>
-      <label for="planner-name">Name of This Event's Planner</label>
-      <input id="planner-name" name="planner-name"/>
+      <label class="label is-size-5" for="planner-name">Name of This Event's Planner</label>
+      <input class="input text is-normal is-info" id="planner-name" name="planner-name"/>
     </div>
-    <button type="submit" class="btn">Create</button>
+    <div class="pt-2">
+    <button class="button is-info has-text-white" type="submit">Create</button>
+    </div>
   </form>
 </section>
 
