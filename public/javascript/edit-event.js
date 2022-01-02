@@ -29,11 +29,5 @@ async function editFormHandler(event) {
       alert(response.statusText);
     }
   }
-  'id',
-  'event_name',
-  'date',
-  'description',
-  'planner_name',
-  'planner_contact'
   
-  document.querySelector('.edit-event-form').addEventListener('submit', editFormHandler);
+  document.querySelector('.save-event-button').addEventListener('submit', editFormHandler);

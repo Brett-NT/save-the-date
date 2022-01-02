@@ -3,12 +3,12 @@ async function newFormHandler(event) {
   
     const guest = document.querySelector('input[name="guest-name"]').value;
     const email = document.querySelector('input[name="guest-email"]').value;
-    const response = document.querySelector('input[name="attending"]').value;
+    const attendingResponse = document.querySelector('input[name="attending"]').value;
     const event_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
       ];
     let attending;
-    if (response === yes) {
+    if (attendingResponse === yes) {
         attending = true;
     }else {
         attending = false;
@@ -34,4 +34,4 @@ async function newFormHandler(event) {
     }
   }
   
-  document.querySelector('.event-guest-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.add-guest-btn').addEventListener('submit', newFormHandler);

@@ -22,4 +22,4 @@ async function newFormHandler(event) {
     }
   }
   
-  document.querySelector('.new-event-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.delete-event-btn').addEventListener('submit', newFormHandler);
