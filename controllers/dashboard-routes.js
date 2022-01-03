@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Event, User, Planner, Partner, Guest } = require('../models');
+const { Event, User, Planner, Partner, Guest, GuestEvents } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all Events for dashboard
@@ -32,6 +32,11 @@ router.get('/', withAuth, (req, res) => {
 
 router.get('/edit/:id', withAuth, (req, res) => {
   Event.findByPk(req.params.id, {
+    include: [{
+      model: Guest,
+      through: GuestEvents,
+      as: "guest_events"
+    }],
     attributes: [
       'id',
       'event_name',
@@ -44,6 +49,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     .then(dbEventData => {
       if (dbEventData) {
         const Events = dbEventData.get({ plain: true });
+        console.log(Events);
         
         res.render('edit-Event', {
           Events,

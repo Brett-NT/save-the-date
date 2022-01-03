@@ -9,6 +9,7 @@ async function editFormHandler(event) {
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
+    alert(event_name + date + description + planner_name + planner_contact +id);
     const response = await fetch(`/api/events/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -30,4 +31,4 @@ async function editFormHandler(event) {
     }
   }
   
-  document.querySelector('.save-event-button').addEventListener('submit', editFormHandler);
+  document.querySelector('.edit-event-form').addEventListener('submit', editFormHandler);

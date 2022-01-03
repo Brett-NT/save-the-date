@@ -12,7 +12,7 @@
       <input name="planner-contact" type="text" value="{{Events.planner_contact}}" />
     </div>
     {{!-- adding a guest --}}
-    <form class="event-guest-form">
+    {{!-- <form class="event-guest-form"> --}}
 
       <div>
         <label "guest-name">Add your Guest's Name!</label>
@@ -23,20 +23,30 @@
         <input id="guest-email" name="guest-email" />
       </div>
       <div>
-        <input type="radio" id="attending-Choice1" name="attending" value="yes">
+        <input type="radio" class="attending" name="attending" value="yes">
         <label for="attending-Choice1">Yes</label>
 
-        <input type="radio" id="attending-Choice2" name="attending" value="no">
+        <input type="radio" class="attending" name="attending" value="no">
         <label for="attending-Choice2">No</label>
       </div>
-      <button type="submit" class="add-guest-btn">Add Guest</button>
+      <button class="add-guest-btn">Add Guest</button>
 
-    </form>
+    {{!-- </form> --}}
     {{!-- end of adding guest --}}
-    <button class="save-event-button" type="submit">Save Event</button>
+    <button class="save-event-button">Save Event</button>
     <button type="button" class="delete-event-btn">Delete Event</button>
   </form>
+  <table>
+    <thead><th><td>Guests</td><td>Email</td></th></thead>
+    <tbody>
+      {{!-- {{#each guests}}
+      <tr><td>{{name}}</td><td>{{email}}</td></tr>
+      {{/each}} --}}
+    </tbody>
+
+  </table>
 </article>
 
 <script src="/javascript/edit-event.js"></script>
 <script src="/javascript/add-guest.js"></script>
+<script src="/javascript/delete-event.js"></script>

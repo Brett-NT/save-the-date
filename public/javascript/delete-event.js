@@ -3,9 +3,11 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const event_id = document.querySelector('input[name="event-id"]').value;
+    const event_id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
   
-    const response = await fetch(`/api/events`, {
+    const response = await fetch(`/api/events/` + event_id, {
       method: 'DELETE',
       body: JSON.stringify({
         event_id
@@ -22,4 +24,4 @@ async function newFormHandler(event) {
     }
   }
   
-  document.querySelector('.delete-event-btn').addEventListener('submit', newFormHandler);
+  document.querySelector('.delete-event-btn').addEventListener('click', newFormHandler);
