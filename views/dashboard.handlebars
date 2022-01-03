@@ -48,27 +48,27 @@
       <section class="event">
 
         <div class="partial-event-name">
-          {{Events.event_name}}
+          {{event_name}}
         </div>
 
         <div class="partial-date">
-          {{Events.date}}
+          {{date}}
         </div>
 
         <div class="partial-description">
-          {{Events.description}}
+          {{description}}
         </div>
 
         <div class="partial-planner-name">
-          {{Events.planner_name}}
+          {{planner_name}}
           {{!-- on {{format_date created_at}} --}}
         </div>
 
         <div class="partial-planner-contact">
-          {{Events.planner_contact}}
+          {{planner_contact}}
         </div>
 
-        <a href="/dashboard/edit/{{Events.id}}" class="edit-link">Edit event</a>
+        <a href="/dashboard/edit/{{id}}" class="edit-link">Edit event</a>
       </section>
     </li>
     {{/each}}
