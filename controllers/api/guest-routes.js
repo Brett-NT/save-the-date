@@ -6,9 +6,6 @@ const withAuth = require('../../utils/auth');
 //get all guestss for the specific event
 router.get('/', withAuth, (req, res) => {
     Guest.findAll({
-        // where: {
-        //     event_id: req.params.event_id
-        // },
         attributes: [
             'id',
             'name',
@@ -20,6 +17,32 @@ router.get('/', withAuth, (req, res) => {
             res.status(404).json({ message: 'No guests were found for this event.' });
             return;
         }
+        res.json(dbGuestData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+//get all guests for one event_id
+router.get('/event/:event_id', withAuth, (req, res) => {
+    Guest.findAll({
+        where: {
+            event_id: parseInt(req.params.event_id)
+        },
+        attributes: [
+            'id',
+            'name',
+            'email',
+            'attending'
+        ]
+    }).then(dbGuestData => {
+        if (!dbGuestData) {
+            res.status(404).json({ message: 'No guests were found for this event.' });
+            return;
+        }
+        console.log(dbGuestData);
         res.json(dbGuestData);
     })
     .catch(err => {
@@ -110,6 +133,7 @@ router.delete('/:id', withAuth, (req, res) => {
             res.status(404).json({ message: 'No guest found with this id.' });
             return;
         }
+        res.json(dbGuestData);
     })
     .catch(err => {
         console.log(err);
