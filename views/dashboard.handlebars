@@ -1,6 +1,6 @@
 <section class="section">
-  <div class="title is-2">
-    <h2>Create New Event</h2>
+  <div class="title is-size-2 is-underlined">
+    <h2 class="has-text-weight-bold">Create New Event</h2>
   </div>
   <form class="event-post-form">
     <div>
@@ -32,7 +32,9 @@
 </section>
 
 {{!-- Posts all the events by the user --}}
-<h2>Your Events!</h2>
+<div class="title is-size-3 pl-5 is-underlined">
+  <h2 class="has-text-weight-semibold">Your Events!</h2>
+</div>
 <section>
 
 
@@ -42,33 +44,38 @@
   </div> --}}
 
 
-  <ul>
+  <ul class="message is-info">
    {{#each Events}}
     <li>
       <section class="event">
 
-        <div class="partial-event-name">
+        <div class="message-header title is-capitalized is-underlined is-size-3 pl-6 partial-event-name">
           {{event_name}}
         </div>
 
-        <div class="partial-date">
+        <div class="content pl-6 is-size-6 partial-date">
+          <label class="has-text-weight-bold" for="date">Date: </label>
           {{date}}
         </div>
 
-        <div class="partial-description">
+        <div class="content pl-6 is-size-6 partial-description">
+          <label class="has-text-weight-bold" for="description">Description: </label>
           {{description}}
         </div>
 
-        <div class="partial-planner-name">
+        <div class="content pl-6 is-size-6 partial-planner-name">
+          <label class="has-text-weight-bold" for="planner-name">Planner's Name: </label>
           {{planner_name}}
           {{!-- on {{format_date created_at}} --}}
         </div>
 
-        <div class="partial-planner-contact">
+        <div class="content pl-6 is-size-6 partial-planner-contact">
+          <label class="has-text-weight-bold" for="planner-email">Planner's Email: </label>
           {{planner_contact}}
         </div>
-
-        <a href="/dashboard/edit/{{id}}" class="edit-link">Edit event</a>
+        <div class="pl-6 pb-4">
+          <a href="/dashboard/edit/{{id}}" class="button edit-link">Edit event</a>
+        </div>
       </section>
     </li>
     {{/each}}
