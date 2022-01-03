@@ -1,15 +1,37 @@
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
+<div class="pb-3">
+  <a class="pl-3"href="/dashboard"> &larr; Back to dashboard</a>
+</div>
+  <div class="message is-info">
+  <h2 class="title is-size-3 is-underlined pl-5 pt-2">
     Edit Event
   </h2>
   <form class="edit-event-form">
-    <div>
-      <input name="event-title" type="text" value="{{Events.event_name}}" />
-      <input name="event-date" type="text" value="{{Events.date}}" />
-      <input name="event-description" type="text" value="{{Events.description}}" />
-      <input name="planner-name" type="text" value="{{Events.planner_name}}" />
-      <input name="planner-contact" type="text" value="{{Events.planner_contact}}" />
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-fifths">
+          <div class="pb-2">
+            <label class="is-size-5 has-text-weight-semibold" for="title">Title</label>
+            <input class="input is-info is-focused" name="event-title" type="text" value="{{Events.event_name}}" />
+          </div>
+          <div class="pb-2">
+            <label class="is-size-5 has-text-weight-semibold" for="date">Date</label>
+            <input class="input is-info is-focused" name="event-date" type="text" value="{{Events.date}}" />
+          </div>
+          <div class="pb-2">
+            <label class="is-size-5 has-text-weight-semibold" for="description">Description</label>
+            <input class="input is-info is-focused" name="event-description" type="text" value="{{Events.description}}" />
+          </div>
+          <div class="pb-2">
+            <label class="is-size-5 has-text-weight-semibold" for="planner-name">Planner's Name</label>
+            <input class="input is-info is-focused" name="planner-name" type="text" value="{{Events.planner_name}}" />
+          </div>
+          <div class="pb-2">
+            <label class="is-size-5 has-text-weight-semibold" for="planner-contact">Planner's Contact</label>
+            <input class="input is-info is-focused" name="planner-contact" type="text" value="{{Events.planner_contact}}" />
+          </div>
+        </div>  
+      </div>
     </div>
     {{!-- adding a guest --}}
     {{!-- <form class="event-guest-form"> --}}
