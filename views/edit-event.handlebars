@@ -36,39 +36,29 @@
     {{!-- adding a guest --}}
     {{!-- <form class="event-guest-form"> --}}
 
-      <div class="container">
-        <div class="columns">
-          <div class="column is-two-fifths">
-            <div class="pb-2">
-              <label class="is-size-5 has-text-weight-semibold" "guest-name">Add your Guest's Name!</label>
-              <input class="input is-info is-focused" id="guest-name" name="guest-name" />
-            </div>
-            <div class="pb-2">
-              <label class="is-size-5 has-text-weight-semibold" "guest-email">Add a Contact Email</label>
-              <input class="input is-info is-focused" id="guest-email" name="guest-email" />
-            </div>
-            <div class="pb-2">
-              <label for="attending">Is this guest attending?</label>
-              <input type="radio" class="attending" name="attending" value="yes">
-              <label for="attending-Choice1">Yes</label>
-
-              <input type="radio" class="attending" name="attending" value="no">
-              <label for="attending-Choice2">No</label>
-            </div>
-            <div class="pb-2">
-              <button type="submit" class="add-guest-btn">Add Guest</button>
-            </div>
-          </div>  
+      <div>
+        <label "guest-name">Add your Guest's Name!</label>
+        <input id="guest-name" name="guest-name" />
       </div>
-    </div>
-    </form>
+      <div>
+        <label "guest-email">Add a Contact Email</label>
+        <input id="guest-email" name="guest-email" />
+      </div>
+      <div>
+        <input type="radio" class="attending" name="attending" value="yes">
+        <label for="attending-Choice1">Yes</label>
+
+        <input type="radio" class="attending" name="attending" value="no">
+        <label for="attending-Choice2">No</label>
+      </div>
+      <button class="add-guest-btn">Add Guest</button>
+
+    {{!-- </form> --}}
     {{!-- end of adding guest --}}
-    <div class="p-3 pl-6">
-      <button class="save-event-button" type="submit">Save Event</button>
-      <button type="button" class="delete-event-btn">Delete Event</button>
-    </div>
+    <button class="save-event-button">Save Event</button>
+    <button type="button" class="delete-event-btn">Delete Event</button>
   </form>
-    <table>
+  <table>
     <thead><th><td>Guests</td><td>Email</td></th></thead>
     <tbody>
       {{!-- {{#each guests}}
