@@ -23,7 +23,7 @@ async function newFormHandler(event) {
     // console.log("response from post req", response)
     if (response.ok) {
     // console.log("great!")
-      // document.location.replace('/dashboard');
+      document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }

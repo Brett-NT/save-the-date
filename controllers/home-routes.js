@@ -5,7 +5,7 @@ const { Planner, User, Partner, Event, Guest } = require('../models');
 
 router.get('/', (req, res) => {
   console.log('======================');
-  User.findAll({
+  Event.findAll({
   })
     .then(dbPostData => {
       const Events = dbPostData.map(post => post.get({ plain: true }));
