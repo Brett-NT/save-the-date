@@ -51,7 +51,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         const Events = dbEventData.get({ plain: true });
         console.log(Events);
         
-        res.render('edit-Event', {
+        res.render('edit-event', {
           Events,
           loggedIn: true
         });
