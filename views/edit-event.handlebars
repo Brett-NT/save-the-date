@@ -48,6 +48,7 @@
             <input class="input is-info is-focused" id="guest-email" placeholder="Please enter the contact's email" name="guest-email" />
           </div>
           <div class="pb-2">
+            <h3>Attending:</h3>
             <input type="radio" class="attending" name="attending" value="yes">
             <label for="attending-Choice1">Yes</label>
 
@@ -69,7 +70,7 @@
   </div>
   </form>
   <table class="title is-4">
-    <thead><th><td>Guests</td><td>Email</td></th></thead>
+    {{!-- <thead><th><td>Guests</td><td>Email</td></th></thead> --}}
     <tbody>
       {{#each guests}}
       <tr><td>{{name}}</td><td>{{email}}</td><td>{{attending}}</td></tr>
